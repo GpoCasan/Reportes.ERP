@@ -133,6 +133,9 @@ function initNavigation() {
             if (moduleName === 'compras' && typeof initComprasModule === 'function') {
                 initComprasModule();
             }
+            if (moduleName === 'facturas' && typeof initFacturasModule === 'function') {
+                setTimeout(initFacturasModule, 100);
+            }
         });
     });
 }
@@ -203,6 +206,17 @@ function initComprasIfNeeded() {
     }
 }
 
+// ==================== INICIALIZAR MÓDULO DE FACTURAS ====================
+function initFacturasIfNeeded() {
+    // Verificar si el módulo de facturas está visible y no se ha inicializado
+    const facturasModule = document.getElementById('facturasModule');
+    if (facturasModule && facturasModule.classList.contains('active-module')) {
+        if (typeof initFacturasModule === 'function') {
+            setTimeout(initFacturasModule, 100);
+        }
+    }
+}
+
 // Ejecutar inicialización después de que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar autenticación primero
@@ -220,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicializar módulo de compras si es necesario (por si está activo por defecto)
     initComprasIfNeeded();
+    
+    // Inicializar módulo de facturas si es necesario
+    initFacturasIfNeeded();
     
     // Configurar el botón de limpiar en inventario si existe
     const clearProductBtn = document.getElementById('clearProductBtn');

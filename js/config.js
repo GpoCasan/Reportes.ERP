@@ -1,7 +1,7 @@
 // ==================== CONFIGURACIÓN GLOBAL ====================
 const CONFIG = {
     FIXED_TOKEN: "71185|aP92nbw0SWxApAOaKUFRI6alhQa7KnBnTKG1ngBq",
-
+   
     
     // APIs
     API_LOGS: 'https://inventory.gcasan.com/api/specifications-group/logs',
